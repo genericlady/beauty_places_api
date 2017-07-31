@@ -1,5 +1,5 @@
 class QueryValidator
-  VALID_TYPES = %q(hair skin nails)
+  VALID_TYPES = %q(hair skin nails beauty_salon hair_care)
   attr_reader :query, :errors
 
   def initialize(query_params)

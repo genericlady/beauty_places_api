@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   get '/search', to: 'beauty_places#index'
-  get '/current_location', to: 'current_location#show'
+  get '/details', to: 'beauty_places#details'
 end
