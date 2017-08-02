@@ -3,7 +3,12 @@ class BeautyPlacesController < ApplicationController
     query_validator = create_query_validator
     if query_validator.valid?
       if params.key?(:coords)
-        query_string = params[:type] + " near " + current_city_state
+        query_string = params[:type] + " near " + current_location.city_state
+        beauty_places = google_places.spots_by_query(query_string)
+      elsif params.key?(:current_location)
+        cl = params[:current_location]
+        city_state = "#{cl[:city]}, #{cl[:state]}"
+        query_string = params[:type] + " near " + city_state
         beauty_places = google_places.spots_by_query(query_string)
       else
         beauty_places = []
