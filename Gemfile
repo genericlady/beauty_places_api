@@ -13,6 +13,7 @@ gem 'google_places'
 gem 'foreman', '~> 0.82.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'geocoder'
+gem 'devise'
 gem 'jwt'
 
 group :development, :test do
