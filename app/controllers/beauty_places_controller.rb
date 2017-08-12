@@ -7,8 +7,12 @@ class BeautyPlacesController < ApplicationController
         beauty_places = google_places.spots_by_query(query_string)
       elsif params.key?(:current_location)
         cl = params[:current_location]
-        city_state = "#{cl[:city]}, #{cl[:state]}"
-        query_string = params[:type] + " near " + city_state
+        if cl.key?(:user_input)
+          loc = cl[:user_input]
+        else
+          loc = "#{cl[:city]}, #{cl[:state]}"
+        end
+        query_string = params[:type] + " near " + loc
         beauty_places = google_places.spots_by_query(query_string)
       else
         beauty_places = []
