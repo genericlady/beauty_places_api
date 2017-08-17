@@ -43,3 +43,5 @@ fetch('http://localhost:3001/deals', {
   .then(json => console.log(json))
   .catch(err => console.log(err))
 ```
+
+Use localstorage to save the token if you want it to persist.
